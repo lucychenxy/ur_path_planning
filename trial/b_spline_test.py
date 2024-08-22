@@ -9,20 +9,15 @@ t = np.linspace(0, 2 * np.pi, n_points)
 # Nonlinear functions for each dimension
 x1 = np.sin(t)  # First dimension
 x2 = np.cos(t)  # Second dimension
-x3 = t*t+5  # Third dimension (linear)
+x3 = t+5  # Third dimension (linear)
 x4 = np.sin(2 * t)  # Fourth dimension
 x5 = np.log(t + 1)  # Fifth dimension
-x6 = np.exp(0.1 * t*t)  # Sixth dimension
+x6 = np.exp(0.1 * t)  # Sixth dimension
 
 # Combine into a 6D trajectory
 trajectory = np.vstack([x1, x2, x3, x4, x5, x6])
-#trajectory2 = np.vstack([2*x2, 2*x1, 2*x5, 2*x4, 2*x3, 2*x6])
 
-# Generate the B-spline representation of the trajectory
-u_manual = np.array([0., 0.11373014, 0.1965552, 0.31887008, 
-                     0.39895789, 0.50636543, 0.61357902, 
-                     0.69279269, 0.81390613, 0.89299561, 1.])
-tck, u1 = splprep(trajectory, s=0, k=3, u=u_manual) 
+tck, u1 = splprep(trajectory, s=0, k=3)  #, u=u_manual
 #tck, u2 = splprep(trajectory2, s=0, k=3)
 
 # Generate new points on the B-spline
