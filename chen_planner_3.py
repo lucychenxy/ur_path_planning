@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from mpl_toolkits.mplot3d import Axes3D
 from scipy.interpolate import make_interp_spline
 
 init_degrees = np.array([163, -65, 34, -69, -91, 134])
